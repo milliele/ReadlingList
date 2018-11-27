@@ -522,8 +522,18 @@ class AutoCompleteComboBox(wx.ComboBox):
 				if wx.TheClipboard.Open():
 					wx.TheClipboard.SetData(dataObj)
 					wx.TheClipboard.Close()
-					self.ignoreEvtText = True
-					self.Clear()
+					self.SafeSetChoice("")
+				else:
+					wx.MessageBox("Unable to open the clipboard", "Error")
+			elif unichr(key).lower()=='v':
+				# textobject = wx.TextDataObject()
+				dataObj = wx.TextDataObject()
+				# dataObj.SetText(self.Value)
+				if wx.TheClipboard.Open():
+					wx.TheClipboard.GetData(dataObj)
+					wx.TheClipboard.Close()
+					# self.ignoreEvtText = True
+					self.SafeSetChoice(dataObj.GetText())
 				else:
 					wx.MessageBox("Unable to open the clipboard", "Error")
 		if key in self.__keyboard__funcs:
