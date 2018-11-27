@@ -102,6 +102,8 @@ def Set_Paper_Data(id, data):
 		return u"Failed to Access DataBase!"
 
 def Set_List(table, name):
+	if name == "":
+		return ""
 	if OpenTable(DB_conn, table):
 		try:
 			c = DB_conn.cursor()
