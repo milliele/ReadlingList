@@ -3,7 +3,7 @@
 TABLES = {
 	'papers': '''
 		id INTEGER PRIMARY KEY   AUTOINCREMENT  NOT NULL,
-	    title     UNIQUE      TEXT    NOT NULL,
+	    title     TEXT    NOT NULL,
 	    class INT,
 	    conference       TEXT,
 	    type        TEXT,
