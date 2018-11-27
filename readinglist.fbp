@@ -1716,7 +1716,7 @@
                         </object>
                         <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALIGN_CENTER_VERTICAL|wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxComboBox" expanded="0">
                                 <property name="BottomDockable">1</property>
@@ -1914,7 +1914,7 @@
                                 <property name="window_extra_style"></property>
                                 <property name="window_name"></property>
                                 <property name="window_style"></property>
-                                <event name="OnKillFocus">OnCompleteType</event>
+                                <event name="OnKillFocus">OnConfCompleteType</event>
                             </object>
                         </object>
                         <object class="sizeritem" expanded="0">
@@ -1990,7 +1990,7 @@
                         </object>
                         <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALIGN_CENTER_VERTICAL|wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxComboBox" expanded="0">
                                 <property name="BottomDockable">1</property>
@@ -2126,7 +2126,7 @@
                         </object>
                         <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALIGN_CENTER_VERTICAL|wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxSpinCtrl" expanded="0">
                                 <property name="BottomDockable">1</property>
@@ -2386,7 +2386,7 @@
                         </object>
                         <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALIGN_CENTER_VERTICAL|wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxTextCtrl" expanded="0">
                                 <property name="BottomDockable">1</property>

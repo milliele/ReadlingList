@@ -70,7 +70,7 @@ def Get_Class_Data(cls, labels=None, is_all = False, search=""):
 				return c.fetchall()
 		except Exception, e:
 			import traceback
-			traceback.print_exc(e)
+			# traceback.print_exc(e)
 			return []
 	else:
 		return []

@@ -777,16 +777,16 @@ class EditFrame ( wx.Frame ):
 		self.SetSizeHints(wx.Size(680, 344), wx.DefaultSize)
 
 		self.ReadonlyTool = self.CreateToolBar(wx.TB_HORIZONTAL | wx.TB_TEXT, wx.ID_ANY)
-		self.EditPaper = self.ReadonlyTool.AddTool(wx.ID_ANY, u"编辑文章",
-														pic.edit.GetBitmap(), wx.NullBitmap,
+		self.EditPaper = self.ReadonlyTool.AddLabelTool(wx.ID_ANY, u"编辑文章",
+														wx.Bitmap(u"pic/edit.png", wx.BITMAP_TYPE_ANY), wx.NullBitmap,
 														wx.ITEM_NORMAL, wx.EmptyString, wx.EmptyString, None)
 
-		self.OpenHomePage = self.ReadonlyTool.AddTool(wx.ID_ANY, u"打开主页",
-														   pic.home.GetBitmap(),
+		self.OpenHomePage = self.ReadonlyTool.AddLabelTool(wx.ID_ANY, u"打开主页",
+														   wx.Bitmap(u"pic/home.png", wx.BITMAP_TYPE_ANY),
 														   wx.NullBitmap, wx.ITEM_NORMAL, wx.EmptyString,
 														   wx.EmptyString, None)
 
-		self.Search = self.ReadonlyTool.AddTool(wx.ID_ANY, u"学术搜索", pic.view.GetBitmap(),
+		self.Search = self.ReadonlyTool.AddLabelTool(wx.ID_ANY, u"学术搜索", wx.Bitmap(u"pic/view.png", wx.BITMAP_TYPE_ANY),
 													 wx.NullBitmap, wx.ITEM_NORMAL, wx.EmptyString, wx.EmptyString,
 													 None)
 
@@ -813,7 +813,7 @@ class EditFrame ( wx.Frame ):
 
 		ClassChoices = []
 		self.Class = AutoCompleteComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, ClassChoices, 0)
-		bSizer12.Add(self.Class, 0, wx.ALL, 5)
+		bSizer12.Add(self.Class, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
 
 		bSizer9.Add(bSizer12, 1, wx.EXPAND, 5)
 
@@ -824,7 +824,7 @@ class EditFrame ( wx.Frame ):
 
 		bSizer17.Add(self.m_staticText17, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
 
-		ConferenceChoices = []
+		ConferenceChoices = [u"123", u"123123123"]
 		self.Conference = AutoCompleteComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
 									  ConferenceChoices, 0)
 		bSizer17.Add(self.Conference, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
@@ -838,7 +838,7 @@ class EditFrame ( wx.Frame ):
 
 		TypeChoices = []
 		self.Type = AutoCompleteComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, TypeChoices, 0)
-		bSizer17.Add(self.Type, 0, wx.ALL, 5)
+		bSizer17.Add(self.Type, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
 
 		bSizer17.Add((30, 0), 0, 0, 5)
 
@@ -849,7 +849,7 @@ class EditFrame ( wx.Frame ):
 
 		self.Time = wx.SpinCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
 								wx.SP_ARROW_KEYS | wx.SP_WRAP, 0, 10, 0)
-		bSizer17.Add(self.Time, 0, wx.ALL, 5)
+		bSizer17.Add(self.Time, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
 
 		bSizer9.Add(bSizer17, 1, wx.EXPAND, 5)
 
@@ -871,7 +871,7 @@ class EditFrame ( wx.Frame ):
 		bSizer171.Add(self.m_staticText21, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
 
 		self.DBID = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0)
-		bSizer171.Add(self.DBID, 0, wx.ALL, 5)
+		bSizer171.Add(self.DBID, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
 
 		self.m_staticText15 = wx.StaticText(self, wx.ID_ANY, u"被引量：", wx.DefaultPosition, wx.DefaultSize, 0)
 		self.m_staticText15.Wrap(-1)
@@ -944,7 +944,7 @@ class EditFrame ( wx.Frame ):
 		EditButtons.AddButton(self.EditButtonsOK)
 		self.EditButtonsCancel = wx.Button(self, wx.ID_CANCEL)
 		EditButtons.AddButton(self.EditButtonsCancel)
-		EditButtons.Realize()
+		EditButtons.Realize();
 
 		bSizer9.Add(EditButtons, 1, wx.EXPAND, 5)
 
@@ -1026,7 +1026,9 @@ class EditFrame ( wx.Frame ):
 			if res == "":
 				for k in config.COMBOBOXES:
 					if k in newdata:
-						res += ("更新类名%s: " % k) + core.Set_List("list_%s" % k, newdata[k]) + '\n'
+						res2 = core.Set_List("list_%s" % k, newdata[k])
+						if res2!="":
+							res += ("更新类名%s: %s\n" % k, res2)
 				if res != "":
 					wx.MessageBox("%s有问题！原因:%s" % ("新建" if self.id == None else "修改", res), "Warning", wx.OK|wx.CENTRE|wx.ICON_EXCLAMATION)
 				self.Hide()
