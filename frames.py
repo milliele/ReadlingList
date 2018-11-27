@@ -778,15 +778,15 @@ class EditFrame ( wx.Frame ):
 
 		self.ReadonlyTool = self.CreateToolBar(wx.TB_HORIZONTAL | wx.TB_TEXT, wx.ID_ANY)
 		self.EditPaper = self.ReadonlyTool.AddLabelTool(wx.ID_ANY, u"编辑文章",
-														wx.Bitmap(u"pic/edit.png", wx.BITMAP_TYPE_ANY), wx.NullBitmap,
+														pic.edit.GetBitmap(), wx.NullBitmap,
 														wx.ITEM_NORMAL, wx.EmptyString, wx.EmptyString, None)
 
 		self.OpenHomePage = self.ReadonlyTool.AddLabelTool(wx.ID_ANY, u"打开主页",
-														   wx.Bitmap(u"pic/home.png", wx.BITMAP_TYPE_ANY),
+														   pic.home.GetBitmap(),
 														   wx.NullBitmap, wx.ITEM_NORMAL, wx.EmptyString,
 														   wx.EmptyString, None)
 
-		self.Search = self.ReadonlyTool.AddLabelTool(wx.ID_ANY, u"学术搜索", wx.Bitmap(u"pic/view.png", wx.BITMAP_TYPE_ANY),
+		self.Search = self.ReadonlyTool.AddLabelTool(wx.ID_ANY, u"学术搜索", pic.view.GetBitmap(),
 													 wx.NullBitmap, wx.ITEM_NORMAL, wx.EmptyString, wx.EmptyString,
 													 None)
 
