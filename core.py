@@ -106,12 +106,13 @@ def Set_List(table, name):
 		try:
 			c = DB_conn.cursor()
 			# print '''insert into %s %s values %s;''' % (table, "(name)", "('%s')" % name)
-			c.execute(u'''REPLACE into %s %s values %s;''' % (table, "(name)","('%s')" % name))
+			c.execute(u'''replace into %s %s values %s;''' % (table, "(name)","('%s')" % name))
 			DB_conn.commit()
 			return ""
 		except Exception, e:
 			# print str(e)
-			return str(e)
+			import traceback
+			return traceback.format_exc(e)
 	else:
 		return "Failed to Access DataBase!"
 

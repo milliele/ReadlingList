@@ -1026,14 +1026,14 @@ class EditFrame ( wx.Frame ):
 			if res == "":
 				for k in config.COMBOBOXES:
 					if k in newdata:
-						res += "更新类名%s: " % k + core.Set_List("list_%s" % k, newdata[k])+'\n'
-			if res == "":
-				# wx.MessageBox(u"%s成功！" % u"新建" if self.id==None else u"修改",u"确认")
+						res += ("更新类名%s: " % k) + core.Set_List("list_%s" % k, newdata[k]) + '\n'
+				if res != "":
+					wx.MessageBox("%s有问题！原因:%s" % ("新建" if self.id == None else "修改", res), "Warning", wx.OK|wx.CENTRE|wx.ICON_EXCLAMATION)
 				self.Hide()
 				self.GUIManager.UpdateUI('mainframe', 'MAIN')
 				self.GUIManager.DestroyFrame(self.GetName())
 			else:
-				wx.MessageBox("%s失败！原因:%s" % ("新建" if self.id == None else "修改", res), "确认")
+				wx.MessageBox("%s失败！原因:%s" % ("新建" if self.id == None else "修改", res), "Error", wx.OK|wx.CENTRE|wx.ICON_ERROR)
 
 
 @register_frame('BROWSER')
