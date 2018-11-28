@@ -824,7 +824,7 @@ class EditFrame ( wx.Frame ):
 
 		bSizer17.Add(self.m_staticText17, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
 
-		ConferenceChoices = [u"123", u"123123123"]
+		ConferenceChoices = []
 		self.Conference = AutoCompleteComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
 									  ConferenceChoices, 0)
 		bSizer17.Add(self.Conference, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
