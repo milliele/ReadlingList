@@ -10,25 +10,6 @@ import markdown, codecs, string
 from registry import register_decorator
 
 
-def OpenTable(conn, name):
-	# print conn
-	if conn == None:
-		return False
-	c = conn.cursor()
-	c.execute('''select count(*) from sqlite_master where type='table' and name = '%s';''' % name)
-	if c.fetchone()[0] <= 0:
-		if name in config.TABLES:
-			# print "create table %s (%s);" % (name, config.TABLES[name])
-			c.execute("create table %s (%s);" % (name, config.TABLES[name]))
-			conn.commit()
-			return True
-		else:
-			warn("Invalid Table Name!")
-	else:
-		return True
-	return False
-
-
 def warn(message, title='Warning', icon=wx.ICON_EXCLAMATION, button=wx.OK):
 	wx.MessageBox(message, title,
 				  button | icon)

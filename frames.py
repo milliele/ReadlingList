@@ -541,7 +541,8 @@ class MainFrame ( wx.Frame ):
 	def OnClose(self, event):
 		lists = self.Classes.GetItems()
 		core.Set_Class_Sort(lists)
-		core.DB_conn.close()
+		if core.DB_conn != None:
+			core.DB_conn.close()
 		self.GUIManager.DestroyFrame(self.GetName())
 		self.GUIManager.UpdateUI('initframe', 'INIT')
 
