@@ -118,7 +118,7 @@ def Single_Paper_MarkDown(data):
 		   (data['title'], data['time'], data['conference'], data['type'], data['beref'], data['refnum'], data['main'])
 
 
-def Markdown2HTML(filename, width=25, nonumber=False):
+def Markdown2HTML(filename, width=25, nonumber=True):
 	htmlTemplate = string.Template('''
 	<!DOCTYPE html>
 	<html>

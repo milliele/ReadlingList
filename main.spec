@@ -36,8 +36,8 @@ app = BUNDLE(exe,
          bundle_identifier='com.metahlm.app.acrl',
          info_plist={
             'NSHighResolutionCapable': True,
-            'CFBundleVersion': '0.1.0',
-            'CFBundleShortVersionString': '0.1.0',
+            'CFBundleVersion': '0.1.1',
+            'CFBundleShortVersionString': '0.1.1',
             'CFBundleDocumentTypes': [
                 {
                     'CFBundleTypeName': 'Reading List',

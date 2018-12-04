@@ -539,8 +539,6 @@ class MainFrame ( wx.Frame ):
 		self.OnSizeChange(None)
 
 	def OnClose(self, event):
-		lists = self.Classes.GetItems()
-		core.Set_Class_Sort(lists)
 		if core.DB_conn != None:
 			core.DB_conn.close()
 		self.GUIManager.DestroyFrame(self.GetName())
@@ -1115,6 +1113,7 @@ class ListTarget(wx.TextDropTarget):
 			# print lists
 			self.__object.SetItems(lists)
 			self.__object.SetSelection(self.__object.FindString(oldchoice))
+			core.Set_Class_Sort(lists)
 			return True
 		elif data['type']== 'grid':
 			paperid = int(data['content'])
