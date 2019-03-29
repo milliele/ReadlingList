@@ -1,8 +1,9 @@
 # Introduction
+MAC OS程序，基于python+wxpython开发
 ```
 .
 ├── build              : 打包程序的文件夹
-├── dist               : 同上
+├── dist               : **正式程序所在，AcademicReadingList.app**
 ├── pngpic.iconset     : 图标文件夹
 ├── pic                : 用到的图片
 ├── config.py          : 一些配置信息
